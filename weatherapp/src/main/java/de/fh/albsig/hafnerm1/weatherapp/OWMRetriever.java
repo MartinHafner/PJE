@@ -7,22 +7,48 @@ import java.net.URLConnection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * @author martin
+ *
+ */
 public class OWMRetriever {
-	private String apiKey = "&APPID=8ba83aa18c2bb895f97b58c588c8cc9c";
-	private String baseURL;
-	private String mode;
-	private static Logger log;
-	public OWMRetriever(){
-		log = LogManager.getLogger(OWMRetriever.class);
-		baseURL = "http://api.openweathermap.org/data/2.5";
-		mode = "&mode=xml";
-	}
+    /**
+     * apiKey for permission to use weatherAPI.
+     */
+    private final String apiKey = "&APPID=8ba83aa18c2bb895f97b58c588c8cc9c";
+    /**
+     * URL to the OWM site.
+     */
+    private final String baseURL;
+    /**
+     * specifies format.
+     */
+    private final String mode;
+    /**
+     * info Logger.
+     */
+    private static Logger log;
 
-	public InputStream retrieveByCityID(String cityid) throws Exception {
-		log.info("Retrieving Weather Data");
-		String url = baseURL + "/weather?id=" + cityid +mode+ apiKey;
-		//url = "https://samples.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid=b6907d289e10d714a6e88b30761fae22";
-		URLConnection conn = new URL(url).openConnection();
-		return conn.getInputStream();
-	}
+    /**
+     * Constructor.
+     */
+    public OWMRetriever() {
+        log = LogManager.getLogger(OWMRetriever.class);
+        this.baseURL = "http://api.openweathermap.org/data/2.5";
+        this.mode = "&mode=xml";
+    }
+
+    /**
+     * @param cityid city id
+     * @return InputStream from connection
+     * @throws Exception can't access weather
+     */
+    public final InputStream retrieveByCityID(final String cityid)
+            throws Exception {
+        log.info("Retrieving Weather Data");
+        final String url = this.baseURL + "/weather?id=" + cityid + this.mode
+                + this.apiKey;
+        final URLConnection conn = new URL(url).openConnection();
+        return conn.getInputStream();
+    }
 }

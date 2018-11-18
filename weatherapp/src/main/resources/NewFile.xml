@@ -7,7 +7,7 @@
 	</city>
 	<temperature value="280.15" min="278.15" max="281.15"
 		unit="kelvin" />
-	<humidity value="81" unit="%" />
+	<humidity value="81" unit="%" ></humidity>
 	<pressure value="1012" unit="hPa" />
 	<wind>
 		<speed value="4.6" name="Gentle Breeze" />
