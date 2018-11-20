@@ -1,0 +1,10 @@
+2018-11-20 21:57:06 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-20 21:57:06 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-20 21:58:48 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-20 21:58:48 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-20 22:04:30 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-20 22:04:30 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-20 22:05:51 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-20 22:05:51 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-20 22:06:22 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-20 22:06:22 INFO  OWMRetriever:49 - Retrieving Weather Data

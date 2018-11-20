@@ -1,9 +1,13 @@
 package de.fh.albsig.hafnerm1.weatherapp;
 
+import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+//import org.apache.log4j.;
+//import org.apache.log4j.Logger;
+import org.dom4j.DocumentException;
 
 /**
  * @author martin
@@ -21,13 +25,21 @@ public class Main {
      */
     public static void main(final String[] args) throws Exception {
         log = LogManager.getLogger(Main.class);
+        // PropertyConfigurator.configure(
+        // Main.class.getClassLoader().getResource("log4j.xml"));
+
         String cityid = "3220838";
         try {
             cityid = args[0];
         } catch (final Exception e) {
             log.warn("no CityID provided, using: " + cityid);
         }
-        new Main(cityid).start();
+
+        try {
+            new Main(cityid).start();
+        } catch (final Exception e1) {
+            log.error("can't retrive data for :" + cityid);
+        }
     }
 
     /**
@@ -45,12 +57,29 @@ public class Main {
     /**
      * @throws Exception Can't get weather
      */
-    public final void start() throws Exception {
+    public final void start() {
         // Retrieve Data
         final InputStream dataIn = new OWMRetriever().retrieveByCityID(this.id);
         // Parse Data
-        final Weather weather = new OWMParser().parse(dataIn);
+        final OWMParser owmParser = new OWMParser();
+        Weather weather = null;
+        try {
+            weather = owmParser.parse(dataIn);
+        } catch (final DocumentException e) {
+            log.error("can't parse weather to text");
+        }
+
+        final XMLFormatter xmlFormatter = new XMLFormatter(weather);
+        xmlFormatter.format();
+        final String path = "src/main/resources/";
+        try {
+            xmlFormatter.save(path);
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            log.error("can't save weather under: " + path);
+        }
+
         // Format (Print) Data
-        System.out.print(new WeatherFormatter().format(weather));
+        System.out.println(new WeatherFormatter().format(weather));
     }
 }

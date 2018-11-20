@@ -1,11 +1,13 @@
 package de.fh.albsig.hafnerm1.weatherapp;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 /**
  * @author martin
@@ -43,12 +45,21 @@ public class OWMRetriever {
      * @return InputStream from connection
      * @throws Exception can't access weather
      */
-    public final InputStream retrieveByCityID(final String cityid)
-            throws Exception {
+    public final InputStream retrieveByCityID(final String cityid) {
         log.info("Retrieving Weather Data");
+        InputStream downstream = null;
         final String url = this.baseURL + "/weather?id=" + cityid + this.mode
                 + this.apiKey;
-        final URLConnection conn = new URL(url).openConnection();
-        return conn.getInputStream();
+        URLConnection conn;
+        try {
+            conn = new URL(url).openConnection();
+            downstream = conn.getInputStream();
+        } catch (final MalformedURLException e) {
+            log.error("Malformed URL: " + url);
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            log.error("can't get connection");
+        }
+        return downstream;
     }
 }

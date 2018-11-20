@@ -60,12 +60,31 @@ public class Weather {
     private String cloudsName;
 
     /**
+     * timestamp of weather probing.
+     */
+    private String lastUpdate;
+
+    /**
      * @param kelv kelvin value
      * @return celsius value
      */
     private String kelvinToCelsius(final String kelv) {
         return String.format("%.2f",
                 Double.parseDouble(kelv) - this.celsiusInKelvin);
+    }
+
+    /**
+     * @return lastUpdate
+     */
+    public final String getLastUpdate() {
+        return this.lastUpdate;
+    }
+
+    /**
+     * @param lastUpdatep lastUpdate
+     */
+    public final void setLastUpdate(final String lastUpdatep) {
+        this.lastUpdate = lastUpdatep;
     }
 
     /**

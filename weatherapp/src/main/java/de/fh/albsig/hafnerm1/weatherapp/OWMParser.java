@@ -20,6 +20,10 @@ public class OWMParser {
      * document.
      */
     private Document document;
+    /**
+     * dataIn.
+     */
+    private InputStream dataIn;
 
     /**
      * Constructor generating new reader.
@@ -29,14 +33,15 @@ public class OWMParser {
     }
 
     /**
-     * @param dataIn InputStream
+     * @param dataInp InputStream
      * @return weather object
      * @throws DocumentException can't find data in xml
      */
-    public final Weather parse(final InputStream dataIn)
+    public final Weather parse(final InputStream dataInp)
             throws DocumentException {
-        this.document = this.reader.read(dataIn);
-        System.out.println(this.document.asXML());
+        this.dataIn = dataInp;
+        this.document = this.reader.read(this.dataIn);
+        // System.out.println(this.document.asXML());
 
         final Weather weather = new Weather();
 
@@ -53,10 +58,10 @@ public class OWMParser {
         weather.setTemp(temp);
         final String minTemp = this.document
                 .valueOf("/current/temperature/@min");
-        weather.setMaxTemp(minTemp);
+        weather.setMinTemp(minTemp);
         final String maxTemp = this.document
                 .valueOf("/current/temperature/@max");
-        weather.setMinTemp(maxTemp);
+        weather.setMaxTemp(maxTemp);
         final String wind = this.document.valueOf("/current/wind/speed/@value");
         weather.setWind(wind);
         final String windName = this.document
@@ -75,17 +80,19 @@ public class OWMParser {
                 .valueOf("/current/clouds/@name");
         weather.setCloudsName(cloudsName);
 
+        final String lastUpdate = this.document
+                .valueOf("/current/lastupdate/@value");
+        weather.setLastUpdate(lastUpdate);
+
         return weather;
     }
 
     /**
-     * @param dataIn InputStream
      * @return xmlFile as String
      * @throws DocumentException can't read stream
      */
-    public final String getXML(final InputStream dataIn)
-            throws DocumentException {
-        this.document = this.reader.read(dataIn);
+    public final String getXML() throws DocumentException {
+        this.document = this.reader.read(this.dataIn);
         return this.document.asXML();
     }
 

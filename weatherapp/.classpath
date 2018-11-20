@@ -18,8 +18,7 @@
   <classpathentry kind="var" path="M2_REPO/org/junit/platform/junit-platform-runner/1.3.1/junit-platform-runner-1.3.1.jar" sourcepath="M2_REPO/org/junit/platform/junit-platform-runner/1.3.1/junit-platform-runner-1.3.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/junit/platform/junit-platform-suite-api/1.3.1/junit-platform-suite-api-1.3.1.jar" sourcepath="M2_REPO/org/junit/platform/junit-platform-suite-api/1.3.1/junit-platform-suite-api-1.3.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar" sourcepath="M2_REPO/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/logging/log4j/log4j-core/2.11.1/log4j-core-2.11.1.jar" sourcepath="M2_REPO/org/apache/logging/log4j/log4j-core/2.11.1/log4j-core-2.11.1-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.jar" sourcepath="M2_REPO/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17.jar" sourcepath="M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/json/json/20180813/json-20180813.jar" sourcepath="M2_REPO/org/json/json/20180813/json-20180813-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" sourcepath="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar"/>
