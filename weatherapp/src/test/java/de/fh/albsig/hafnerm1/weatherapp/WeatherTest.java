@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,6 @@ public class WeatherTest {
     public Weather mockedWeather;
     private Weather weather;
     private Path testPath;
-    private InputStream mockedInputStream;
 
     @BeforeAll
     void setup() {
@@ -73,7 +73,6 @@ public class WeatherTest {
             assertEquals(in.available() > 0, true);
             in.close();
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
         }
 
     }
@@ -91,12 +90,16 @@ public class WeatherTest {
         assertEquals(new File(this.testPath.toString()).isFile(), true);
     }
 
+    @AfterEach
+    void cleanEach() {
+
+    }
+
     @AfterAll
     void cleanUp() {
         try {
             Files.delete(this.testPath);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

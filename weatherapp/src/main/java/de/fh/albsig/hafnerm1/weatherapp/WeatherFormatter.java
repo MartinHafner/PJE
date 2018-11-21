@@ -11,7 +11,7 @@ public class WeatherFormatter {
      * @return formated String
      */
     public final String format(final Weather weather) {
-        String output = "";
+        String output = "\n";
         output += "Location: \t";
         output += weather.getCity() + ", " + weather.getCountry() + "\n";
         output += "Condition: \t";

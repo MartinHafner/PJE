@@ -41,7 +41,6 @@ public class OWMParser {
             throws DocumentException {
         this.dataIn = dataInp;
         this.document = this.reader.read(this.dataIn);
-        // System.out.println(this.document.asXML());
 
         final Weather weather = new Weather();
 
@@ -83,8 +82,6 @@ public class OWMParser {
         final String lastUpdate = this.document
                 .valueOf("/current/lastupdate/@value");
         weather.setLastUpdate(lastUpdate);
-
-        System.out.println(this.document.asXML());
 
         return weather;
     }

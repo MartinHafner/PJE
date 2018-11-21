@@ -17,3 +17,84 @@
 2018-11-21 11:05:34 INFO  OWMRetriever:49 - Retrieving Weather Data
 2018-11-21 11:07:59 INFO  OWMRetriever:49 - Retrieving Weather Data
 2018-11-21 11:08:50 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:13:27 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:23:26 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-21 18:23:26 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:25:39 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-21 18:25:39 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:25:39 INFO  Main:83 - Location: 	Landkreis München, DE
+Condition: 	mist,overcast clouds
+Temp: 		2,00°C : -0,23°C : -2,00°C
+Humidity: 	100%
+Pressure: 	1015hPa
+Wind: 		2.1km/h South-southeast, Light breeze
+2018-11-21 18:27:25 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-21 18:27:25 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:27:26 INFO  Main:83 - Location: 	Landkreis München, DE
+Condition: 	mist,overcast clouds
+Temp: 		2,00°C : -0,23°C : -2,00°C
+Humidity: 	100%
+Pressure: 	1015hPa
+Wind: 		2.1km/h South-southeast, Light breeze
+2018-11-21 18:29:55 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:44:23 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:46:27 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 18:57:05 INFO  OWMRetriever:73 - Retrieving Weather Data
+2018-11-21 19:01:16 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:11:51 WARN  Main:33 - no CityID provided, using: 3220838
+2018-11-21 19:11:51 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:11:51 INFO  Main:81 - 
+Location: 	Landkreis München, DE
+Condition: 	mist,overcast clouds
+Temp: 		2,00°C : -0,23°C : -2,00°C
+Humidity: 	100%
+Pressure: 	1016hPa
+Wind: 		2.1km/h East-southeast, Light breeze
+2018-11-21 19:28:09 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:31:40 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:32:19 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:33:06 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:36:09 WARN  Main:33 - no CityID provided, using: 3220838
+2018-11-21 19:36:09 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:36:10 INFO  Main:81 - 
+Location: 	Landkreis München, DE
+Condition: 	mist,overcast clouds
+Temp: 		2,00°C : -0,23°C : -2,00°C
+Humidity: 	100%
+Pressure: 	1016hPa
+Wind: 		2.1km/h East-southeast, Light breeze
+2018-11-21 19:38:14 WARN  Main:33 - no CityID provided, using: 3220838
+2018-11-21 19:38:14 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:38:15 INFO  Main:81 - 
+Location: 	Landkreis München, DE
+Condition: 	mist,overcast clouds
+Temp: 		2,00°C : -0,24°C : -2,00°C
+Humidity: 	100%
+Pressure: 	1016hPa
+Wind: 		2.1km/h East-southeast, Light breeze
+2018-11-21 19:38:44 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:38:44 INFO  Main:81 - 
+Location: 	London, GB
+Condition: 	few clouds,few clouds
+Temp: 		5,00°C : 3,54°C : 1,00°C
+Humidity: 	75%
+Pressure: 	1017hPa
+Wind: 		3.1km/h East-southeast, Light breeze
+2018-11-21 19:40:05 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:41:38 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:41:38 INFO  Main:81 - 
+Location: 	London, GB
+Condition: 	few clouds,few clouds
+Temp: 		5,00°C : 3,54°C : 1,00°C
+Humidity: 	75%
+Pressure: 	1017hPa
+Wind: 		3.1km/h East-southeast, Light breeze
+2018-11-21 19:44:22 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:45:48 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-21 19:45:49 INFO  Main:80 - 
+Location: 	London, GB
+Condition: 	few clouds,few clouds
+Temp: 		5,00°C : 3,41°C : 1,00°C
+Humidity: 	80%
+Pressure: 	1018hPa
+Wind: 		3.1km/h East-southeast, Light breeze

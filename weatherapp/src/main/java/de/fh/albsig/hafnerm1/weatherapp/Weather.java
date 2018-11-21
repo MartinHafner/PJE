@@ -9,7 +9,7 @@ public class Weather {
     /**
      * Constant for converting kelvin to celsius.
      */
-    private static double celsiusInKelvin = 273.15;
+    private static final double CELSIUS_KELVIN = 273.15;
     /**
      * city name.
      */
@@ -64,6 +64,9 @@ public class Weather {
      */
     private String lastUpdate;
 
+    /**
+     * Konstruktor.
+     */
     public Weather() {
         this.city = "n/a";
         this.country = "n/a";
@@ -87,7 +90,7 @@ public class Weather {
      */
     private String kelvinToCelsius(final String kelv) {
         return String.format("%.2f",
-                Double.parseDouble(kelv) - this.celsiusInKelvin);
+                Double.parseDouble(kelv) - Weather.CELSIUS_KELVIN);
     }
 
     /**

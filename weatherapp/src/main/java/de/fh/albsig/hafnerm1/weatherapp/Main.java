@@ -5,8 +5,6 @@ import java.io.InputStream;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-//import org.apache.log4j.;
-//import org.apache.log4j.Logger;
 import org.dom4j.DocumentException;
 
 /**
@@ -75,11 +73,10 @@ public class Main {
         try {
             xmlFormatter.save(path);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
             log.error("can't save weather under: " + path);
         }
 
         // Format (Print) Data
-        System.out.println(new WeatherFormatter().format(weather));
+        log.info(new WeatherFormatter().format(weather));
     }
 }

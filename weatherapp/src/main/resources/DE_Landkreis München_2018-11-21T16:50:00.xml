@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weather><location>Landkreis München,DE</location><condition>mist, overcast clouds</condition><temperature><max>2,00</max><avg>-0,23</avg><min>-2,00</min></temperature><humidity>100</humidity><pressure>1015</pressure><wind><speed>2.1</speed><direction>South-southeast</direction><name>Light breeze</name></wind><lastupdate>2018-11-21T16:50:00</lastupdate></weather>

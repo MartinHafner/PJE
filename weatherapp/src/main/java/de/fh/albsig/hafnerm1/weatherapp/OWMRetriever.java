@@ -29,13 +29,13 @@ public class OWMRetriever {
     /**
      * info Logger.
      */
-    private static Logger log;
+    private final Logger log;
 
     /**
      * Constructor.
      */
     public OWMRetriever() {
-        log = LogManager.getLogger(OWMRetriever.class);
+        this.log = LogManager.getLogger(OWMRetriever.class);
         this.baseURL = "http://api.openweathermap.org/data/2.5";
         this.mode = "&mode=xml";
     }
@@ -46,7 +46,7 @@ public class OWMRetriever {
      * @throws Exception can't access weather
      */
     public final InputStream retrieveByCityID(final String cityid) {
-        log.info("Retrieving Weather Data");
+        this.log.info("Retrieving Weather Data");
         InputStream downstream = null;
         final String url = this.baseURL + "/weather?id=" + cityid + this.mode
                 + this.apiKey;
@@ -55,10 +55,9 @@ public class OWMRetriever {
             conn = new URL(url).openConnection();
             downstream = conn.getInputStream();
         } catch (final MalformedURLException e) {
-            log.error("Malformed URL: " + url);
+            this.log.error("Malformed URL: " + url);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            log.error("can't get connection");
+            this.log.error("can't get connection");
         }
         return downstream;
     }

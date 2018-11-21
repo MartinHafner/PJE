@@ -1,6 +1,7 @@
 package de.fh.albsig.hafnerm1.weatherapp;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -90,7 +91,8 @@ public class XMLFormatter {
         final Path fullPath = Paths.get(
                 path + this.weather.getCountry() + "_" + this.weather.getCity()
                         + "_" + this.weather.getLastUpdate() + ".xml");
-        Files.write(fullPath, this.document.asXML().getBytes());
+        Files.write(fullPath,
+                this.document.asXML().getBytes(StandardCharsets.UTF_8));
         return fullPath;
     }
 
