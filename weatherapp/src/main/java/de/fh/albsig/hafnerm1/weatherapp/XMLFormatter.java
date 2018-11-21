@@ -2,6 +2,7 @@ package de.fh.albsig.hafnerm1.weatherapp;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.dom4j.Document;
@@ -83,13 +84,14 @@ public class XMLFormatter {
     /**
      * @param path savelocation
      * @throws IOException can't save
+     * @return fullPath full Path to saved File
      */
-    public final void save(final String path) throws IOException {
-        Files.write(
-                Paths.get(path + this.weather.getCountry() + "_"
-                        + this.weather.getCity() + "_"
-                        + this.weather.getLastUpdate() + ".xml"),
-                this.document.asXML().getBytes());
+    public final Path save(final String path) throws IOException {
+        final Path fullPath = Paths.get(
+                path + this.weather.getCountry() + "_" + this.weather.getCity()
+                        + "_" + this.weather.getLastUpdate() + ".xml");
+        Files.write(fullPath, this.document.asXML().getBytes());
+        return fullPath;
     }
 
 }

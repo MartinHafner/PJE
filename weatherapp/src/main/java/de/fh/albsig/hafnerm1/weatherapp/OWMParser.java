@@ -84,6 +84,8 @@ public class OWMParser {
                 .valueOf("/current/lastupdate/@value");
         weather.setLastUpdate(lastUpdate);
 
+        System.out.println(this.document.asXML());
+
         return weather;
     }
 
