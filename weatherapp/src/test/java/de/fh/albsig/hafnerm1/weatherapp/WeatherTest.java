@@ -41,10 +41,10 @@ public class WeatherTest {
         when(this.mockedWeather.getMaxTemp()).thenReturn("273.15");
         when(this.mockedWeather.getMaxTempC()).thenReturn("0,00 ");
         when(this.mockedWeather.getMinTemp()).thenReturn("269.15");
-        when(this.mockedWeather.getMinTempC()).thenReturn("-4.00");
+        when(this.mockedWeather.getMinTempC()).thenReturn("-4,00");
         when(this.mockedWeather.getPressure()).thenReturn("1009");
         when(this.mockedWeather.getTemp()).thenReturn("271.15");
-        when(this.mockedWeather.getTempC()).thenReturn("-2.00");
+        when(this.mockedWeather.getTempC()).thenReturn("-2,00");
         when(this.mockedWeather.getWind()).thenReturn("1");
         when(this.mockedWeather.getWindDir()).thenReturn("North");
         when(this.mockedWeather.getWindName()).thenReturn("Calm");
@@ -59,10 +59,8 @@ public class WeatherTest {
     @Test
     void KelvinCelsiusTest() {
         this.weather.setTemp(this.mockedWeather.getTemp());
-        assertEquals(this.mockedWeather.getTemp(),
-                this.mockedWeather.getTemp());
-        assertEquals(this.mockedWeather.getTempC(),
-                this.mockedWeather.getTempC());
+        assertEquals(this.weather.getTemp(), this.mockedWeather.getTemp());
+        assertEquals(this.weather.getTempC(), this.mockedWeather.getTempC());
     }
 
     @Test

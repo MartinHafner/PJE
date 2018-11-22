@@ -98,3 +98,6 @@ Temp: 		5,00°C : 3,41°C : 1,00°C
 Humidity: 	80%
 Pressure: 	1018hPa
 Wind: 		3.1km/h East-southeast, Light breeze
+2018-11-22 09:52:32 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-22 09:53:34 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-22 09:54:12 INFO  OWMRetriever:49 - Retrieving Weather Data
