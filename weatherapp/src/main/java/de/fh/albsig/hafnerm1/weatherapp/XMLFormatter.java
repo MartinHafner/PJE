@@ -19,7 +19,7 @@ public class XMLFormatter {
     /**
      * weather object to be converted.
      */
-    private final Weather weather;
+    private final OWMWeather weather;
 
     /**
      * document for generating xml.
@@ -29,7 +29,7 @@ public class XMLFormatter {
     /**
      * @param weatherp weather
      */
-    public XMLFormatter(final Weather weatherp) {
+    public XMLFormatter(final OWMWeather weatherp) {
         this.weather = weatherp;
         this.document = DocumentHelper.createDocument();
     }
@@ -51,24 +51,25 @@ public class XMLFormatter {
         final Element tempTag = rootTag.addElement("temperature");
 
         final Element maxtempTag = tempTag.addElement("max");
-        maxtempTag.addText(this.weather.getMaxTempC());
+        maxtempTag.addText(String.valueOf(this.weather.getMaxTempInCelsius()));
 
         final Element avgtempTag = tempTag.addElement("avg");
-        avgtempTag.addText(this.weather.getTempC());
+        avgtempTag.addText(String.valueOf(this.weather.getTempInCelsius()));
 
         final Element mintempTag = tempTag.addElement("min");
-        mintempTag.addText(this.weather.getMinTempC());
+        mintempTag.addText(String.valueOf(this.weather.getMinTempInCelsius()));
 
         final Element humidityTag = rootTag.addElement("humidity");
-        humidityTag.addText(this.weather.getHumidity());
+        humidityTag
+                .addText(String.valueOf(this.weather.getHumidityInPercent()));
 
         final Element pressureTag = rootTag.addElement("pressure");
-        pressureTag.addText(this.weather.getPressure());
+        pressureTag.addText(String.valueOf(this.weather.getPressureInHPA()));
 
         final Element windTag = rootTag.addElement("wind");
 
         final Element speedTag = windTag.addElement("speed");
-        speedTag.addText(this.weather.getWind());
+        speedTag.addText(String.valueOf(this.weather.getWindInKMH()));
 
         final Element dirTag = windTag.addElement("direction");
         dirTag.addText(this.weather.getWindDir());
@@ -77,7 +78,7 @@ public class XMLFormatter {
         windnameTag.addText(this.weather.getWindName());
 
         final Element lastupdateTag = rootTag.addElement("lastupdate");
-        lastupdateTag.addText(this.weather.getLastUpdate());
+        lastupdateTag.addText(this.weather.getLastUpdate().toString());
 
         return this.document.asXML();
     }

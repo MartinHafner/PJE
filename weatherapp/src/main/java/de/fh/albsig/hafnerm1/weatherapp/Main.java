@@ -18,6 +18,11 @@ public class Main {
     private static Logger log;
 
     /**
+     * The given City-id.
+     */
+    private final String id;
+
+    /**
      * @param args program parameters
      * @throws Exception no parameters found
      */
@@ -41,11 +46,6 @@ public class Main {
     }
 
     /**
-     * The given City-id.
-     */
-    private final String id;
-
-    /**
      * @param cid City-id
      */
     public Main(final String cid) {
@@ -60,7 +60,7 @@ public class Main {
         final InputStream dataIn = new OWMRetriever().retrieveByCityID(this.id);
         // Parse Data
         final OWMParser owmParser = new OWMParser();
-        Weather weather = null;
+        OWMWeather weather = null;
         try {
             weather = owmParser.parse(dataIn);
         } catch (final DocumentException e) {

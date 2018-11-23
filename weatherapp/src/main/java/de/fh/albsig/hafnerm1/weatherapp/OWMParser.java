@@ -37,12 +37,12 @@ public class OWMParser {
      * @return weather object
      * @throws DocumentException can't find data in xml
      */
-    public final Weather parse(final InputStream dataInp)
+    public final OWMWeather parse(final InputStream dataInp)
             throws DocumentException {
         this.dataIn = dataInp;
         this.document = this.reader.read(this.dataIn);
 
-        final Weather weather = new Weather();
+        final OWMWeather weather = new OWMWeather();
 
         final String city = this.document.valueOf("/current/city/@name");
         weather.setCity(city);

@@ -46,7 +46,7 @@ public class OWMRetriever {
      * @throws Exception can't access weather
      */
     public final InputStream retrieveByCityID(final String cityid) {
-        this.log.info("Retrieving Weather Data");
+        this.log.info("Retrieving OWMWeather Data");
         InputStream downstream = null;
         final String url = this.baseURL + "/weather?id=" + cityid + this.mode
                 + this.apiKey;
