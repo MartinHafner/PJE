@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Built-By: martin
-Build-Jdk: 10.0.2
-Class-Path: lib/log4j-1.2.17.jar lib/commons-lang3-3.8.1.jar lib/json-
- 20180813.jar lib/dom4j-1.6.1.jar lib/xml-apis-1.0.b2.jar lib/jaxen-1.
- 1.6.jar
-Main-Class: de.fh.albsig.hafnerm1.weatherapp.Main
-Created-By: Maven Integration for Eclipse
-
