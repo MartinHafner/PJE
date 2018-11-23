@@ -1,7 +1,10 @@
 /.metadata/
+<<<<<<< HEAD
 /.recommenders/
 /RemoteSystemsTempFiles/
 /weatherapp/target/
 /weatherapp/.settings/
 /weatherapp/.classpath
 /weatherapp/.project
+=======
+>>>>>>> parent of 7d2bfc0... ein paar schnelle fixes

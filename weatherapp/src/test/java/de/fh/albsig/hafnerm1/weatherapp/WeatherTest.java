@@ -1,7 +1,6 @@
 package de.fh.albsig.hafnerm1.weatherapp;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -12,8 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,17 +21,15 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(value = Lifecycle.PER_CLASS)
 public class WeatherTest {
-    private OWMWeather mockedWeather;
-    private OWMWeather weather;
+    public Weather mockedWeather;
+    private Weather weather;
     private Path testPath;
-    private Logger log;
 
     @BeforeAll
     void setup() {
-        this.log = LogManager.getLogger(WeatherTest.class);
         this.testPath = Paths.get("");
 
-        this.mockedWeather = mock(OWMWeather.class);
+        this.mockedWeather = mock(Weather.class);
 
         when(this.mockedWeather.getCity()).thenReturn("London");
         when(this.mockedWeather.getCloudsName()).thenReturn("clear sky");
@@ -42,7 +37,7 @@ public class WeatherTest {
         when(this.mockedWeather.getCountry()).thenReturn("GB");
         when(this.mockedWeather.getHumidity()).thenReturn("99");
         when(this.mockedWeather.getLastUpdate())
-                .thenReturn("2018-11-20T20:20:00"); // as parameter
+                .thenReturn("2018-11-20T20:20:00");
         when(this.mockedWeather.getMaxTemp()).thenReturn("273.15");
         when(this.mockedWeather.getMaxTempC()).thenReturn("0,00 ");
         when(this.mockedWeather.getMinTemp()).thenReturn("269.15");
@@ -58,41 +53,39 @@ public class WeatherTest {
 
     @BeforeEach
     void everyTest() {
-        this.weather = new OWMWeather();
+        this.weather = new Weather();
     }
 
     @Test
-    void kelvinCelsiusTest() {
+    void KelvinCelsiusTest() {
         this.weather.setTemp(this.mockedWeather.getTemp());
         assertEquals(this.weather.getTemp(), this.mockedWeather.getTemp());
         assertEquals(this.weather.getTempC(), this.mockedWeather.getTempC());
     }
 
     @Test
-    void owmRetrieverTest() {
+    void OWMRetrieverTest() {
         final OWMRetriever ret = new OWMRetriever();
-        final String cityid = "3220838";
-        final InputStream in = ret.retrieveByCityID(cityid);
+        final InputStream in = ret.retrieveByCityID("3220838");
         try {
             assertEquals(in.available() > 0, true);
+            in.close();
         } catch (final IOException e) {
-            this.log.error("can't access OWM for CityID: " + cityid);
         }
 
     }
 
     @Test
-    void formatterTest() {
+    void FormatterTest() {
         final XMLFormatter xmlFormatter = new XMLFormatter(this.mockedWeather);
         xmlFormatter.format();
-        final String path = "src/target";
+        final String path = "src/test/resources/";
         try {
             this.testPath = xmlFormatter.save(path);
         } catch (final IOException e) {
-            this.log.error("can't write xml to:" + path);
         }
 
-        assertTrue(new File(this.testPath.toString()).isFile());
+        assertEquals(new File(this.testPath.toString()).isFile(), true);
     }
 
     @AfterEach
@@ -105,7 +98,7 @@ public class WeatherTest {
         try {
             Files.delete(this.testPath);
         } catch (final IOException e) {
-            this.log.error("can't delete file: " + this.testPath);
+            e.printStackTrace();
         }
     }
 

@@ -7,25 +7,24 @@ package de.fh.albsig.hafnerm1.weatherapp;
 public class WeatherFormatter {
 
     /**
-     * @param weather OWMWeather Object
+     * @param weather Weather Object
      * @return formated String
      */
-    public final String format(final OWMWeather weather) {
+    public final String format(final Weather weather) {
         String output = "\n";
         output += "Location: \t";
         output += weather.getCity() + ", " + weather.getCountry() + "\n";
         output += "Condition: \t";
         output += weather.getCondition() + "," + weather.getCloudsName() + "\n";
         output += "Temp: \t\t";
-        output += weather.getMaxTempInCelsius() + "°C : "
-                + weather.getTempInCelsius() + "°C : "
-                + weather.getMinTempInCelsius() + "°C\n";
+        output += weather.getMaxTempC() + "°C : " + weather.getTempC() + "°C : "
+                + weather.getMinTempC() + "°C\n";
         output += "Humidity: \t";
-        output += weather.getHumidityInPercent() + "%\n";
+        output += weather.getHumidity() + "%\n";
         output += "Pressure: \t";
-        output += weather.getPressureInHPA() + "hPa\n";
+        output += weather.getPressure() + "hPa\n";
         output += "Wind: \t\t";
-        output += weather.getWindInKMH() + "km/h " + weather.getWindDir() + ", "
+        output += weather.getWind() + "km/h " + weather.getWindDir() + ", "
                 + weather.getWindName();
         return output;
     }
