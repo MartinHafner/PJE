@@ -1,3 +1,7 @@
 /.metadata/
 /.recommenders/
 /RemoteSystemsTempFiles/
+/target/
+/weatherapp/.settings/
+/weatherapp/.classpath
+/weatherapp/.project

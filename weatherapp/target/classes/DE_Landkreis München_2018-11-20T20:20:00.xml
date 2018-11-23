@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weather><location>Landkreis München,DE</location><condition>fog, clear sky</condition><temperature><max>0,00</max><avg>-1,83</avg><min>-3,00</min></temperature><humidity>95</humidity><pressure>1009</pressure><wind><speed>1</speed><direction>North</direction><name>Calm</name></wind><lastupdate>2018-11-20T20:20:00</lastupdate></weather>

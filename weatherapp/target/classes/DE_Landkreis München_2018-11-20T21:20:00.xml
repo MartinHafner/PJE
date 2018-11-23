@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weather><location>Landkreis München,DE</location><condition>fog, scattered clouds</condition><temperature><max>0,00</max><avg>-2,01</avg><min>-4,00</min></temperature><humidity>92</humidity><pressure>1009</pressure><wind><speed>3.6</speed><direction>East-northeast</direction><name>Gentle Breeze</name></wind><lastupdate>2018-11-20T21:20:00</lastupdate></weather>
