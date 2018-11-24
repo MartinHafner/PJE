@@ -46,7 +46,7 @@ public class OWMRetriever {
      * @throws Exception can't access weather
      */
     public final InputStream retrieveByCityID(final String cityid) {
-        this.log.info("Retrieving Weather Data");
+        this.log.info("Retrieving OWMWeather Data");
         InputStream downstream = null;
         final String url = this.baseURL + "/weather?id=" + cityid + this.mode
                 + this.apiKey;
@@ -55,9 +55,9 @@ public class OWMRetriever {
             conn = new URL(url).openConnection();
             downstream = conn.getInputStream();
         } catch (final MalformedURLException e) {
-            this.log.error("Malformed URL: " + url);
+            this.log.error("Malformed URL: " + e.getMessage());
         } catch (final IOException e) {
-            this.log.error("can't get connection");
+            this.log.error("can't get connection " + e.getMessage());
         }
         return downstream;
     }

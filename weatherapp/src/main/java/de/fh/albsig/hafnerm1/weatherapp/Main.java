@@ -22,21 +22,20 @@ public class Main {
      * @throws Exception no parameters found
      */
     public static void main(final String[] args) throws Exception {
-        log = LogManager.getLogger(Main.class);
-        // PropertyConfigurator.configure(
-        // Main.class.getClassLoader().getResource("log4j.xml"));
+        setLog(LogManager.getLogger(Main.class));
 
         String cityid = "3220838";
         try {
             cityid = args[0];
         } catch (final Exception e) {
-            log.warn("no CityID provided, using: " + cityid);
+            getLog().warn("no CityID provided, using: " + cityid);
         }
 
         try {
-            new Main(cityid).start();
+            new Main(cityid);
+            new OWMProvider().provideWeather(cityid);
         } catch (final Exception e1) {
-            log.error("can't retrive data for :" + cityid);
+            getLog().error("can't retrive data for :" + e1.getMessage());
         }
     }
 
@@ -49,6 +48,7 @@ public class Main {
      * @param cid City-id
      */
     public Main(final String cid) {
+        setLog(LogManager.getLogger(Main.class));
         this.id = cid;
     }
 
@@ -60,23 +60,38 @@ public class Main {
         final InputStream dataIn = new OWMRetriever().retrieveByCityID(this.id);
         // Parse Data
         final OWMParser owmParser = new OWMParser();
-        Weather weather = null;
+        OWMWeather oWMWeather = null;
         try {
-            weather = owmParser.parse(dataIn);
+            oWMWeather = owmParser.parse(dataIn);
         } catch (final DocumentException e) {
-            log.error("can't parse weather to text");
+            getLog().error("can't parse weather to text" + e.getMessage());
         }
 
-        final XMLFormatter xmlFormatter = new XMLFormatter(weather);
-        xmlFormatter.format();
+        final XMLFormatter xmlFormatter = new XMLFormatter();
+        xmlFormatter.format(oWMWeather);
         final String path = "src/main/resources/";
         try {
             xmlFormatter.save(path);
         } catch (final IOException e) {
-            log.error("can't save weather under: " + path);
+            getLog().error("can't save weather under: " + path + " : "
+                    + e.getMessage());
         }
 
         // Format (Print) Data
-        log.info(new WeatherFormatter().format(weather));
+        getLog().info(new WeatherFormatter().format(oWMWeather));
+    }
+
+    /**
+     * @return log
+     */
+    public static Logger getLog() {
+        return log;
+    }
+
+    /**
+     * @param logger log
+     */
+    public static void setLog(final Logger logger) {
+        Main.log = logger;
     }
 }

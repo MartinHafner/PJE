@@ -14,12 +14,12 @@ import org.dom4j.Element;
  * @author martin
  *
  */
-public class XMLFormatter {
+public class XMLFormatter implements Formatter<OWMWeather, String> {
 
     /**
-     * weather object to be converted.
+     * oWMWeather object to be converted.
      */
-    private final Weather weather;
+    private OWMWeather oWMWeather;
 
     /**
      * document for generating xml.
@@ -27,57 +27,59 @@ public class XMLFormatter {
     private final Document document;
 
     /**
-     * @param weatherp weather
+     * Konstruktor.
      */
-    public XMLFormatter(final Weather weatherp) {
-        this.weather = weatherp;
+    public XMLFormatter() {
         this.document = DocumentHelper.createDocument();
     }
 
     /**
+     * @param weatherp weather Object
      * @return XML String
      */
-    public final String format() {
-        final Element rootTag = this.document.addElement("weather");
+    @Override
+    public final String format(final OWMWeather weatherp) {
+        this.oWMWeather = weatherp;
+        final Element rootTag = this.document.addElement("oWMWeather");
 
         final Element locationTag = rootTag.addElement("location");
         locationTag.addText(
-                this.weather.getCity() + "," + this.weather.getCountry());
+                this.oWMWeather.getCity() + "," + this.oWMWeather.getCountry());
 
         final Element conditionTag = rootTag.addElement("condition");
-        conditionTag.addText(this.weather.getCondition() + ", "
-                + this.weather.getCloudsName());
+        conditionTag.addText(this.oWMWeather.getCondition() + ", "
+                + this.oWMWeather.getCloudsName());
 
         final Element tempTag = rootTag.addElement("temperature");
 
         final Element maxtempTag = tempTag.addElement("max");
-        maxtempTag.addText(this.weather.getMaxTempC());
+        maxtempTag.addText(this.oWMWeather.getMaxTempC());
 
         final Element avgtempTag = tempTag.addElement("avg");
-        avgtempTag.addText(this.weather.getTempC());
+        avgtempTag.addText(this.oWMWeather.getTempC());
 
         final Element mintempTag = tempTag.addElement("min");
-        mintempTag.addText(this.weather.getMinTempC());
+        mintempTag.addText(this.oWMWeather.getMinTempC());
 
         final Element humidityTag = rootTag.addElement("humidity");
-        humidityTag.addText(this.weather.getHumidity());
+        humidityTag.addText(this.oWMWeather.getHumidity());
 
         final Element pressureTag = rootTag.addElement("pressure");
-        pressureTag.addText(this.weather.getPressure());
+        pressureTag.addText(this.oWMWeather.getPressure());
 
         final Element windTag = rootTag.addElement("wind");
 
         final Element speedTag = windTag.addElement("speed");
-        speedTag.addText(this.weather.getWind());
+        speedTag.addText(this.oWMWeather.getWind());
 
         final Element dirTag = windTag.addElement("direction");
-        dirTag.addText(this.weather.getWindDir());
+        dirTag.addText(this.oWMWeather.getWindDir());
 
         final Element windnameTag = windTag.addElement("name");
-        windnameTag.addText(this.weather.getWindName());
+        windnameTag.addText(this.oWMWeather.getWindName());
 
         final Element lastupdateTag = rootTag.addElement("lastupdate");
-        lastupdateTag.addText(this.weather.getLastUpdate());
+        lastupdateTag.addText(this.oWMWeather.getLastUpdate());
 
         return this.document.asXML();
     }
@@ -88,9 +90,9 @@ public class XMLFormatter {
      * @return fullPath full Path to saved File
      */
     public final Path save(final String path) throws IOException {
-        final Path fullPath = Paths.get(
-                path + this.weather.getCountry() + "_" + this.weather.getCity()
-                        + "_" + this.weather.getLastUpdate() + ".xml");
+        final Path fullPath = Paths.get(path + this.oWMWeather.getCountry()
+                + "_" + this.oWMWeather.getCity() + "_"
+                + this.oWMWeather.getLastUpdate() + ".xml");
         Files.write(fullPath,
                 this.document.asXML().getBytes(StandardCharsets.UTF_8));
         return fullPath;

@@ -10,7 +10,7 @@ import org.dom4j.io.SAXReader;
  * @author martin
  *
  */
-public class OWMParser {
+public class OWMParser implements Parser<InputStream, OWMWeather> {
 
     /**
      * SAXReader.
@@ -37,53 +37,54 @@ public class OWMParser {
      * @return weather object
      * @throws DocumentException can't find data in xml
      */
-    public final Weather parse(final InputStream dataInp)
+    @Override
+    public final OWMWeather parse(final InputStream dataInp)
             throws DocumentException {
         this.dataIn = dataInp;
         this.document = this.reader.read(this.dataIn);
 
-        final Weather weather = new Weather();
+        final OWMWeather oWMWeather = new OWMWeather();
 
         final String city = this.document.valueOf("/current/city/@name");
-        weather.setCity(city);
+        oWMWeather.setCity(city);
         final String country = this.document
                 .valueOf("/current/city/country/text()");
-        weather.setCountry(country);
+        oWMWeather.setCountry(country);
         final String condition = this.document
                 .valueOf("/current/weather/@value");
-        weather.setCondition(condition);
+        oWMWeather.setCondition(condition);
         final String temp = this.document
                 .valueOf("/current/temperature/@value");
-        weather.setTemp(temp);
+        oWMWeather.setTemp(temp);
         final String minTemp = this.document
                 .valueOf("/current/temperature/@min");
-        weather.setMinTemp(minTemp);
+        oWMWeather.setMinTemp(minTemp);
         final String maxTemp = this.document
                 .valueOf("/current/temperature/@max");
-        weather.setMaxTemp(maxTemp);
+        oWMWeather.setMaxTemp(maxTemp);
         final String wind = this.document.valueOf("/current/wind/speed/@value");
-        weather.setWind(wind);
+        oWMWeather.setWind(wind);
         final String windName = this.document
                 .valueOf("/current/wind/speed/@name");
-        weather.setWindName(windName);
+        oWMWeather.setWindName(windName);
         final String windDir = this.document
                 .valueOf("/current/wind/direction/@name");
-        weather.setWindDir(windDir);
+        oWMWeather.setWindDir(windDir);
         final String humidity = this.document
                 .valueOf("/current/humidity/@value");
-        weather.setHumidity(humidity);
+        oWMWeather.setHumidity(humidity);
         final String pressure = this.document
                 .valueOf("/current/pressure/@value");
-        weather.setPressure(pressure);
+        oWMWeather.setPressure(pressure);
         final String cloudsName = this.document
                 .valueOf("/current/clouds/@name");
-        weather.setCloudsName(cloudsName);
+        oWMWeather.setCloudsName(cloudsName);
 
         final String lastUpdate = this.document
                 .valueOf("/current/lastupdate/@value");
-        weather.setLastUpdate(lastUpdate);
+        oWMWeather.setLastUpdate(lastUpdate);
 
-        return weather;
+        return oWMWeather;
     }
 
     /**
