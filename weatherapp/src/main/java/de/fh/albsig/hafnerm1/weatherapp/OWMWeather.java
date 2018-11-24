@@ -96,203 +96,203 @@ public class OWMWeather {
     /**
      * @return lastUpdate
      */
-    public String getLastUpdate() {
+    public final String getLastUpdate() {
         return this.lastUpdate;
     }
 
     /**
      * @param lastUpdatep lastUpdate
      */
-    public void setLastUpdate(final String lastUpdatep) {
+    public final void setLastUpdate(final String lastUpdatep) {
         this.lastUpdate = lastUpdatep;
     }
 
     /**
      * @return city
      */
-    public String getCity() {
+    public final String getCity() {
         return this.city;
     }
 
     /**
      * @param cityp city
      */
-    public void setCity(final String cityp) {
+    public final void setCity(final String cityp) {
         this.city = cityp;
     }
 
     /**
      * @return country
      */
-    public String getCountry() {
+    public final String getCountry() {
         return this.country;
     }
 
     /**
      * @param countryp country
      */
-    public void setCountry(final String countryp) {
+    public final void setCountry(final String countryp) {
         this.country = countryp;
     }
 
     /**
      * @return condition
      */
-    public String getCondition() {
+    public final String getCondition() {
         return this.condition;
     }
 
     /**
      * @param conditionp condition
      */
-    public void setCondition(final String conditionp) {
+    public final void setCondition(final String conditionp) {
         this.condition = conditionp;
     }
 
     /**
      * @return temp
      */
-    public String getTemp() {
+    public final String getTemp() {
         return this.temp;
     }
 
     /**
      * @return temp in celsius
      */
-    public String getTempC() {
+    public final String getTempC() {
         return this.kelvinToCelsius(this.temp);
     }
 
     /**
      * @param tempp temp
      */
-    public void setTemp(final String tempp) {
+    public final void setTemp(final String tempp) {
         this.temp = tempp;
     }
 
     /**
      * @return minTemp
      */
-    public String getMinTemp() {
+    public final String getMinTemp() {
         return this.minTemp;
     }
 
     /**
      * @return minTemp in celsius
      */
-    public String getMinTempC() {
+    public final String getMinTempC() {
         return this.kelvinToCelsius(this.minTemp);
     }
 
     /**
      * @param minTempp minTemp
      */
-    public void setMinTemp(final String minTempp) {
+    public final void setMinTemp(final String minTempp) {
         this.minTemp = minTempp;
     }
 
     /**
      * @return maxTemp
      */
-    public String getMaxTemp() {
+    public final String getMaxTemp() {
         return this.maxTemp;
     }
 
     /**
      * @return maxTemp in celsius
      */
-    public String getMaxTempC() {
+    public final String getMaxTempC() {
         return this.kelvinToCelsius(this.maxTemp);
     }
 
     /**
      * @param maxTempp maxTemp
      */
-    public void setMaxTemp(final String maxTempp) {
+    public final void setMaxTemp(final String maxTempp) {
         this.maxTemp = maxTempp;
     }
 
     /**
      * @return wind
      */
-    public String getWind() {
+    public final String getWind() {
         return this.wind;
     }
 
     /**
      * @param windp wind
      */
-    public void setWind(final String windp) {
+    public final void setWind(final String windp) {
         this.wind = windp;
     }
 
     /**
      * @return windName
      */
-    public String getWindName() {
+    public final String getWindName() {
         return this.windName;
     }
 
     /**
      * @param windNamep windName
      */
-    public void setWindName(final String windNamep) {
+    public final void setWindName(final String windNamep) {
         this.windName = windNamep;
     }
 
     /**
      * @return windDir
      */
-    public String getWindDir() {
+    public final String getWindDir() {
         return this.windDir;
     }
 
     /**
      * @param windDirp windDir
      */
-    public void setWindDir(final String windDirp) {
+    public final void setWindDir(final String windDirp) {
         this.windDir = windDirp;
     }
 
     /**
      * @return humidity
      */
-    public String getHumidity() {
+    public final String getHumidity() {
         return this.humidity;
     }
 
     /**
      * @param humidityp humidity
      */
-    public void setHumidity(final String humidityp) {
+    public final void setHumidity(final String humidityp) {
         this.humidity = humidityp;
     }
 
     /**
      * @return pressure
      */
-    public String getPressure() {
+    public final String getPressure() {
         return this.pressure;
     }
 
     /**
      * @param pressurep pressure
      */
-    public void setPressure(final String pressurep) {
+    public final void setPressure(final String pressurep) {
         this.pressure = pressurep;
     }
 
     /**
      * @return cloudsName
      */
-    public String getCloudsName() {
+    public final String getCloudsName() {
         return this.cloudsName;
     }
 
     /**
      * @param cloudsNamep cloudsName
      */
-    public void setCloudsName(final String cloudsNamep) {
+    public final void setCloudsName(final String cloudsNamep) {
         this.cloudsName = cloudsNamep;
     }
 
