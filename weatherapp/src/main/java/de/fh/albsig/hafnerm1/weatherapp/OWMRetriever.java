@@ -55,9 +55,9 @@ public class OWMRetriever {
             conn = new URL(url).openConnection();
             downstream = conn.getInputStream();
         } catch (final MalformedURLException e) {
-            this.log.error("Malformed URL: " + url);
+            this.log.error("Malformed URL: " + e.getMessage());
         } catch (final IOException e) {
-            this.log.error("can't get connection");
+            this.log.error("can't get connection " + e.getMessage());
         }
         return downstream;
     }

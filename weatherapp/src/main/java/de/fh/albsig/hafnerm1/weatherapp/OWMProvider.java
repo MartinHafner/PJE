@@ -2,34 +2,64 @@ package de.fh.albsig.hafnerm1.weatherapp;
 
 import java.io.InputStream;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.dom4j.DocumentException;
 
+/**
+ * @author martin
+ *
+ */
 public class OWMProvider {
 
+    /**
+     * logger.
+     */
+    private static Logger logger;
+
+    /**
+     * id.
+     */
     private String id;
 
-    public final String provideWeather(final String id) {
-        this.id = id;
+    /**
+     * Konstruktor.
+     */
+    public OWMProvider() {
+        logger = LogManager.getLogger(OWMProvider.class);
+    }
 
-        String ret;
-        // Retrieve Data
-        final InputStream dataIn = new OWMRetriever().retrieveByCityID(this.id);
-        // Parse Data
-        final OWMParser owmParser = new OWMParser();
+    /**
+     * @param cityid cityID
+     * @return weather html
+     */
+    public final String provideWeather(final String cityid) {
+        this.id = cityid;
+        String ret = "invalid location";
 
-        final WeatherFormatter wFormatter = new WeatherFormatter();
+        if (StringUtils.containsOnly(this.id, "1234567890")) {
+            // Retrieve Data
+            final InputStream dataIn = new OWMRetriever()
+                    .retrieveByCityID(this.id);
+            // Parse Data
+            final OWMParser owmParser = new OWMParser();
 
-        OWMWeather oWMWeather = null;
+            final WeatherFormatter wFormatter = new WeatherFormatter();
 
-        try {
-            oWMWeather = owmParser.parse(dataIn);
-        } catch (final DocumentException e) {
-            Main.getLog().error("can't parse weather to text");
+            OWMWeather oWMWeather = null;
+
+            try {
+                oWMWeather = owmParser.parse(dataIn);
+            } catch (final DocumentException e) {
+                logger.error("can't parse weather to text" + e.getMessage());
+            }
+
+            // Format (Print) Data
+            ret = wFormatter.format(oWMWeather);
+            logger.info(this.id + " : " + ret);
+
         }
-
-        // Format (Print) Data
-        ret = wFormatter.format(oWMWeather);
-        Main.getLog().info(this.id + " : " + ret);
 
         return ret;
     }

@@ -7,10 +7,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.dom4j.DocumentException;
 
-//TODO Use lang3
-//TODO Web - Servlet
-//TODO letzte checkstyles noch beheben
-
 /**
  * @author martin
  *
@@ -39,7 +35,7 @@ public class Main {
             new Main(cityid);
             new OWMProvider().provideWeather(cityid);
         } catch (final Exception e1) {
-            getLog().error("can't retrive data for :" + cityid);
+            getLog().error("can't retrive data for :" + e1.getMessage());
         }
     }
 
@@ -68,7 +64,7 @@ public class Main {
         try {
             oWMWeather = owmParser.parse(dataIn);
         } catch (final DocumentException e) {
-            getLog().error("can't parse weather to text");
+            getLog().error("can't parse weather to text" + e.getMessage());
         }
 
         final XMLFormatter xmlFormatter = new XMLFormatter();
@@ -77,7 +73,8 @@ public class Main {
         try {
             xmlFormatter.save(path);
         } catch (final IOException e) {
-            getLog().error("can't save weather under: " + path);
+            getLog().error("can't save weather under: " + path + " : "
+                    + e.getMessage());
         }
 
         // Format (Print) Data

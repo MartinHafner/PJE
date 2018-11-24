@@ -372,3 +372,66 @@ Wind: 		2.6km/h East-northeast, Light breeze
 2018-11-24 04:41:41 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
 2018-11-24 04:42:23 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
 2018-11-24 04:42:56 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:08:44 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:21:59 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:24:44 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:25:29 WARN  Main:35 - no CityID provided, using: 3220838
+2018-11-24 09:25:29 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:25:29 INFO  Main:32 - 3220838 : <table>
+  <tr>
+    <th>City</th>
+    <th>Landkreis München</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td>DE</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Condition</td>
+    <td>light rain</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><br>Temperatur<br></td>
+    <td>3,00</td>
+    <td>°C</td>
+  </tr>
+  <tr>
+    <td>Windspeed</td>
+    <td>4.1</td>
+    <td>km/h</td>
+  </tr>
+  <tr>
+    <td>Wind direction</td>
+    <td>West</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Humidity</td>
+    <td>100</td>
+    <td>%</td>
+  </tr>
+  <tr>
+    <td>Pressure</td>
+    <td>1014</td>
+    <td>hPa</td>
+  </tr>
+  <tr>
+    <td>Clouds</td>
+    <td>broken clouds</td>
+    <td></td>
+  </tr>
+</table>
+2018-11-24 09:29:45 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:44:37 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 09:50:55 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:00:05 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:01:14 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:02:15 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:20:58 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:22:20 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:23:03 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:28:52 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 10:33:27 INFO  OWMRetriever:49 - Retrieving OWMWeather Data

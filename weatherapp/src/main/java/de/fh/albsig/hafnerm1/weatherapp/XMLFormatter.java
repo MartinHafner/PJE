@@ -27,13 +27,14 @@ public class XMLFormatter implements Formatter<OWMWeather, String> {
     private final Document document;
 
     /**
-     * @param weatherp oWMWeather
+     * Konstruktor.
      */
     public XMLFormatter() {
         this.document = DocumentHelper.createDocument();
     }
 
     /**
+     * @param weatherp weather Object
      * @return XML String
      */
     @Override
@@ -90,8 +91,8 @@ public class XMLFormatter implements Formatter<OWMWeather, String> {
      */
     public final Path save(final String path) throws IOException {
         final Path fullPath = Paths.get(path + this.oWMWeather.getCountry()
-        + "_" + this.oWMWeather.getCity() + "_"
-        + this.oWMWeather.getLastUpdate() + ".xml");
+                + "_" + this.oWMWeather.getCity() + "_"
+                + this.oWMWeather.getLastUpdate() + ".xml");
         Files.write(fullPath,
                 this.document.asXML().getBytes(StandardCharsets.UTF_8));
         return fullPath;
