@@ -98,3 +98,14 @@ Temp: 		5,00°C : 3,41°C : 1,00°C
 Humidity: 	80%
 Pressure: 	1018hPa
 Wind: 		3.1km/h East-southeast, Light breeze
+2018-11-24 01:49:59 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-24 01:52:24 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-24 01:54:05 WARN  Main:33 - no CityID provided, using: 3220838
+2018-11-24 01:54:05 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-24 01:54:06 INFO  Main:80 - 
+Location: 	Landkreis München, DE
+Condition: 	overcast clouds,overcast clouds
+Temp: 		4,00°C : 1,98°C : 0,00°C
+Humidity: 	93%
+Pressure: 	1011hPa
+Wind: 		2.6km/h East-northeast, Light breeze

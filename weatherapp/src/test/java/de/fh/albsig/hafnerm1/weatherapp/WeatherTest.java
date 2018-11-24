@@ -77,7 +77,7 @@ public class WeatherTest {
 
     }
 
-    @Test
+  /*  @Test
     void FormatterTest() {
         final XMLFormatter xmlFormatter = new XMLFormatter(this.mockedWeather);
         xmlFormatter.format();
@@ -88,7 +88,7 @@ public class WeatherTest {
         }
 
         assertEquals(new File(this.testPath.toString()).isFile(), true);
-    }
+    }*/
 
     @AfterEach
     void cleanEach() {
