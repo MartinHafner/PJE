@@ -110,3 +110,112 @@ Humidity: 	93%
 Pressure: 	1011hPa
 Wind: 		2.6km/h East-northeast, Light breeze
 2018-11-24 02:08:15 INFO  OWMRetriever:49 - Retrieving Weather Data
+2018-11-24 02:11:10 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 02:45:26 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 02:47:07 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 02:53:09 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:20:12 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:23:06 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:25:10 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:39:34 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:41:17 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:41:40 WARN  Main:31 - no CityID provided, using: 3220838
+2018-11-24 03:41:40 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:41:40 INFO  Main:79 - <table class="tg">
+  <tr>
+    <th class="tg-0lax">City</th>
+    <th class="tg-0lax">Landkreis München</th>
+    <th class="tg-0lax"></th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Country</td>
+    <td class="tg-0lax">DE</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Condition</td>
+    <td class="tg-0lax">light rain</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><br>Temperatur<br></td>
+    <td class="tg-0lax">2,14</td>
+    <td class="tg-0lax">°C</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Windspeed</td>
+    <td class="tg-0lax">2.6</td>
+    <td class="tg-0lax">km/h</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Wind direction</td>
+    <td class="tg-0lax">East</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Humidity</td>
+    <td class="tg-0lax">93</td>
+    <td class="tg-0lax">%</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Pressure</td>
+    <td class="tg-0lax">1012</td>
+    <td class="tg-0lax">hPa</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Clouds</td>
+    <td class="tg-0lax">overcast clouds</td>
+    <td class="tg-0lax"></td>
+  </tr>
+2018-11-24 03:53:56 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:54:57 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:57:59 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:58:41 WARN  Main:31 - no CityID provided, using: 3220838
+2018-11-24 03:58:41 INFO  OWMRetriever:49 - Retrieving OWMWeather Data
+2018-11-24 03:58:41 INFO  Main:79 - <table>
+  <tr>
+    <th>City</th>
+    <th>Landkreis München</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Country</td>
+    <td>DE</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Condition</td>
+    <td>light rain</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><br>Temperatur<br></td>
+    <td>2,23</td>
+    <td>°C</td>
+  </tr>
+  <tr>
+    <td>Windspeed</td>
+    <td>3.1</td>
+    <td>km/h</td>
+  </tr>
+  <tr>
+    <td>Wind direction</td>
+    <td>NorthEast</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Humidity</td>
+    <td>93</td>
+    <td>%</td>
+  </tr>
+  <tr>
+    <td>Pressure</td>
+    <td>1011</td>
+    <td>hPa</td>
+  </tr>
+  <tr>
+    <td>Clouds</td>
+    <td>overcast clouds</td>
+    <td></td>
+  </tr>
+</table>

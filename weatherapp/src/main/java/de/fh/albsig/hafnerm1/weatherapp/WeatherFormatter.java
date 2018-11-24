@@ -7,25 +7,60 @@ package de.fh.albsig.hafnerm1.weatherapp;
 public class WeatherFormatter {
 
     /**
-     * @param weather Weather Object
+     * @param oWMWeather OWMWeather Object
      * @return formated String
      */
-    public final String format(final Weather weather) {
-        String output = "\n";
-        output += "Location: \t";
-        output += weather.getCity() + ", " + weather.getCountry() + "\n";
-        output += "Condition: \t";
-        output += weather.getCondition() + "," + weather.getCloudsName() + "\n";
-        output += "Temp: \t\t";
-        output += weather.getMaxTempC() + "°C : " + weather.getTempC() + "°C : "
-                + weather.getMinTempC() + "°C\n";
-        output += "Humidity: \t";
-        output += weather.getHumidity() + "%\n";
-        output += "Pressure: \t";
-        output += weather.getPressure() + "hPa\n";
-        output += "Wind: \t\t";
-        output += weather.getWind() + "km/h " + weather.getWindDir() + ", "
-                + weather.getWindName();
+    public final String format(final OWMWeather owmWeather) {
+        
+        String output = "" +
+        "<table>\n" + 
+		"  <tr>\n" + 
+		"    <th>City</th>\n" + 
+		"    <th>"+owmWeather.getCity()+"</th>\n" + 
+		"    <th></th>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Country</td>\n" + 
+		"    <td>"+owmWeather.getCountry()+"</td>\n" + 
+		"    <td></td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Condition</td>\n" + 
+		"    <td>"+owmWeather.getCondition()+"</td>\n" + 
+		"    <td></td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td><br>Temperatur<br></td>\n" + 
+		"    <td>"+owmWeather.getTempC()+"</td>\n" + 
+		"    <td>°C</td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Windspeed</td>\n" + 
+		"    <td>"+owmWeather.getWind()+"</td>\n" + 
+		"    <td>km/h</td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Wind direction</td>\n" + 
+		"    <td>"+owmWeather.getWindDir()+"</td>\n" + 
+		"    <td></td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Humidity</td>\n" + 
+		"    <td>"+owmWeather.getHumidity()+"</td>\n" + 
+		"    <td>%</td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Pressure</td>\n" + 
+		"    <td>"+owmWeather.getPressure()+"</td>\n" + 
+		"    <td>hPa</td>\n" + 
+		"  </tr>\n" + 
+		"  <tr>\n" + 
+		"    <td>Clouds</td>\n" + 
+		"    <td>"+owmWeather.getCloudsName()+"</td>\n" + 
+		"    <td></td>\n" + 
+		"  </tr>\n" + 
+		"</table>";
+        
         return output;
     }
 

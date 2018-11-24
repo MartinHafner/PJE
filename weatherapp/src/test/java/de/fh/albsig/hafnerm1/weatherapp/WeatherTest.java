@@ -20,91 +20,149 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-
 @TestInstance(value = Lifecycle.PER_CLASS)
 public class WeatherTest {
-    public Weather mockedWeather;
-    private Weather weather;
-    private Path testPath;
+	private OWMWeather weather;
+	private Formatter<OWMWeather, String> mockFormatter;
+	private Path testPath;
 
-    @BeforeAll
-    void setup() {
-        this.testPath = Paths.get("");
+	@BeforeAll
+	void setup() {
+		this.mockFormatter = mock(Formatter.class);
+		this.weather = new OWMWeather();
+		this.weather.setCity("na");
+		this.weather.setCountry("na");
+		this.weather.setCondition("na");
+		this.weather.setTemp("0.00");
+		this.weather.setMinTemp("0.00");
+		this.weather.setMaxTemp("0.00");
+		this.weather.setWind("na");
+		this.weather.setWindName("na");
+		this.weather.setWindDir("na");
+		this.weather.setHumidity("na");
+		this.weather.setPressure("na");
+		this.weather.setCloudsName("na");
+		this.weather.setLastUpdate("na");
 
-        this.mockedWeather = mock(Weather.class);
+		when(mockFormatter.format(weather))
+				.thenReturn("<table>\n" + 
+						"  <tr>\n" + 
+						"    <th>City</th>\n" + 
+						"    <th>na</th>\n" + 
+						"    <th></th>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Country</td>\n" + 
+						"    <td>na</td>\n" + 
+						"    <td></td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Condition</td>\n" + 
+						"    <td>na</td>\n" + 
+						"    <td></td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td><br>Temperatur<br></td>\n" + 
+						"    <td>-273,15</td>\n" + 
+						"    <td>°C</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Windspeed</td>\n" + 
+						"    <td>0.00</td>\n" + 
+						"    <td>km/h</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Wind direction</td>\n" + 
+						"    <td>na</td>\n" + 
+						"    <td></td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Humidity</td>\n" + 
+						"    <td>100</td>\n" + 
+						"    <td>%</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Pressure</td>\n" + 
+						"    <td>1000</td>\n" + 
+						"    <td>hPa</td>\n" + 
+						"  </tr>\n" + 
+						"  <tr>\n" + 
+						"    <td>Clouds</td>\n" + 
+						"    <td>na</td>\n" + 
+						"    <td></td>\n" + 
+						"  </tr>\n" + 
+						"</table>");
 
-        when(this.mockedWeather.getCity()).thenReturn("London");
-        when(this.mockedWeather.getCloudsName()).thenReturn("clear sky");
-        when(this.mockedWeather.getCondition()).thenReturn("fog");
-        when(this.mockedWeather.getCountry()).thenReturn("GB");
-        when(this.mockedWeather.getHumidity()).thenReturn("99");
-        when(this.mockedWeather.getLastUpdate())
-                .thenReturn("2018-11-20T20:20:00");
-        when(this.mockedWeather.getMaxTemp()).thenReturn("273.15");
-        when(this.mockedWeather.getMaxTempC()).thenReturn("0,00 ");
-        when(this.mockedWeather.getMinTemp()).thenReturn("269.15");
-        when(this.mockedWeather.getMinTempC()).thenReturn("-4.00");
-        when(this.mockedWeather.getPressure()).thenReturn("1009");
-        when(this.mockedWeather.getTemp()).thenReturn("271.15");
-        when(this.mockedWeather.getTempC()).thenReturn("-2.00");
-        when(this.mockedWeather.getWind()).thenReturn("1");
-        when(this.mockedWeather.getWindDir()).thenReturn("North");
-        when(this.mockedWeather.getWindName()).thenReturn("Calm");
+	}
 
-    }
+	@BeforeEach
+	void everyTest() {
+		this.weather.setCity("na");
+		this.weather.setCountry("na");
+		this.weather.setCondition("na");
+		this.weather.setTemp("0.00");
+		this.weather.setMinTemp("0.00");
+		this.weather.setMaxTemp("0.00");
+		this.weather.setWind("0.00");
+		this.weather.setWindName("na");
+		this.weather.setWindDir("na");
+		this.weather.setHumidity("100");
+		this.weather.setPressure("1000");
+		this.weather.setCloudsName("na");
+		this.weather.setLastUpdate("na");
+	}
 
-    @BeforeEach
-    void everyTest() {
-        this.weather = new Weather();
-    }
+	@Test
+	void kelvinCelsiusTest() {
+		this.weather.setTemp("200.00");
+		assertEquals("200.00", this.weather.getTemp());
+	}
 
-    @Test
-    void KelvinCelsiusTest() {
-        this.weather.setTemp(this.mockedWeather.getTemp());
-        assertEquals(this.mockedWeather.getTemp(),
-                this.mockedWeather.getTemp());
-        assertEquals(this.mockedWeather.getTempC(),
-                this.mockedWeather.getTempC());
-    }
+	@Test
+	void owmRetrieverTest() {
+		final OWMRetriever ret = new OWMRetriever();
+		final InputStream in = ret.retrieveByCityID("3220838");
+		try {
+			assertTrue(in.available() > 0);
+		} catch (final IOException e) {
+			Main.getLog().error("can't retrive OWMWeather");
+		}
 
-    @Test
-    void OWMRetrieverTest() {
-        final OWMRetriever ret = new OWMRetriever();
-        final InputStream in = ret.retrieveByCityID("3220838");
-        try {
-            assertTrue(in.available() > 0);
-        } catch (final IOException e) {
-        	Main.getLog().error("can't retrive Weather");
-        }
+	}
 
-    }
+	@Test
+	void xmlFormatterTest() {
+		final XMLFormatter xmlFormatter = new XMLFormatter();
+		xmlFormatter.format(weather);
+		final String path = "target/";
+		try {
+			this.testPath = xmlFormatter.save(path);
+		} catch (final IOException e) {
+			Main.getLog().error("can't write to file");
+		}
 
-    @Test
-    void FormatterTest() {
-        final XMLFormatter xmlFormatter = new XMLFormatter(this.mockedWeather);
-        xmlFormatter.format();
-        final String path = "target/";
-        try {
-            this.testPath = xmlFormatter.save(path);
-        } catch (final IOException e) {
-        	Main.getLog().error("can't write to file");
-        }
+		assertTrue(new File(this.testPath.toString()).isFile());
+	}
 
-        assertTrue(new File(this.testPath.toString()).isFile());
-    }
+	@Test
+	void weatherFormatterTest() {
+		WeatherFormatter testFormatter = new WeatherFormatter();
+		assertEquals(this.mockFormatter.format(this.weather), testFormatter.format(this.weather));
+	}
 
-    @AfterEach
-    void cleanEach() {
+	@AfterEach
+	void cleanEach() {
 
-    }
+	}
 
-    @AfterAll
-    void cleanUp() {
-        try {
-            Files.delete(this.testPath);
-        } catch (final IOException e) {
-        	Main.getLog().error("can't clean up testfile");;
-        }
-    }
+	@AfterAll
+	void cleanUp() {
+		try {
+			Files.delete(this.testPath);
+		} catch (final Exception e) {
+			Main.getLog().error("can't clean up testfile");
+			;
+		}
+	}
 
 }

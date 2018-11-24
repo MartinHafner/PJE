@@ -4,7 +4,7 @@ package de.fh.albsig.hafnerm1.weatherapp;
  * @author martin
  *
  */
-public class Weather {
+public class OWMWeather {
 
     /**
      * Constant for converting kelvin to celsius.
@@ -67,7 +67,7 @@ public class Weather {
     /**
      * Konstruktor.
      */
-    public Weather() {
+    public OWMWeather() {
         this.city = "n/a";
         this.country = "n/a";
         this.condition = "n/a";
@@ -90,7 +90,7 @@ public class Weather {
      */
     private String kelvinToCelsius(final String kelv) {
         return String.format("%.2f",
-                Double.parseDouble(kelv) - Weather.CELSIUS_KELVIN);
+                Double.parseDouble(kelv) - OWMWeather.CELSIUS_KELVIN);
     }
 
     /**
