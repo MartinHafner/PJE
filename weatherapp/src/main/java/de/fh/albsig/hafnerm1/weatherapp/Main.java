@@ -22,7 +22,7 @@ public class Main {
      * @throws Exception no parameters found
      */
     public static void main(final String[] args) throws Exception {
-        log = LogManager.getLogger(Main.class);
+        setLog(LogManager.getLogger(Main.class));
         // PropertyConfigurator.configure(
         // Main.class.getClassLoader().getResource("log4j.xml"));
 
@@ -30,13 +30,13 @@ public class Main {
         try {
             cityid = args[0];
         } catch (final Exception e) {
-            log.warn("no CityID provided, using: " + cityid);
+            getLog().warn("no CityID provided, using: " + cityid);
         }
 
         try {
             new Main(cityid).start();
         } catch (final Exception e1) {
-            log.error("can't retrive data for :" + cityid);
+            getLog().error("can't retrive data for :" + cityid);
         }
     }
 
@@ -64,7 +64,7 @@ public class Main {
         try {
             weather = owmParser.parse(dataIn);
         } catch (final DocumentException e) {
-            log.error("can't parse weather to text");
+            getLog().error("can't parse weather to text");
         }
 
         final XMLFormatter xmlFormatter = new XMLFormatter(weather);
@@ -73,10 +73,18 @@ public class Main {
         try {
             xmlFormatter.save(path);
         } catch (final IOException e) {
-            log.error("can't save weather under: " + path);
+            getLog().error("can't save weather under: " + path);
         }
 
         // Format (Print) Data
-        log.info(new WeatherFormatter().format(weather));
+        getLog().info(new WeatherFormatter().format(weather));
     }
+
+	public static Logger getLog() {
+		return log;
+	}
+
+	public static void setLog(Logger log) {
+		Main.log = log;
+	}
 }

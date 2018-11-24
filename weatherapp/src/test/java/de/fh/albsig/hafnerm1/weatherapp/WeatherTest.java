@@ -1,6 +1,7 @@
 package de.fh.albsig.hafnerm1.weatherapp;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -18,6 +19,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+
 
 @TestInstance(value = Lifecycle.PER_CLASS)
 public class WeatherTest {
@@ -70,25 +72,26 @@ public class WeatherTest {
         final OWMRetriever ret = new OWMRetriever();
         final InputStream in = ret.retrieveByCityID("3220838");
         try {
-            assertEquals(in.available() > 0, true);
-            in.close();
+            assertTrue(in.available() > 0);
         } catch (final IOException e) {
+        	Main.getLog().error("can't retrive Weather");
         }
 
     }
 
-  /*  @Test
+    @Test
     void FormatterTest() {
         final XMLFormatter xmlFormatter = new XMLFormatter(this.mockedWeather);
         xmlFormatter.format();
-        final String path = "src/test/resources/";
+        final String path = "target/";
         try {
             this.testPath = xmlFormatter.save(path);
         } catch (final IOException e) {
+        	Main.getLog().error("can't write to file");
         }
 
-        assertEquals(new File(this.testPath.toString()).isFile(), true);
-    }*/
+        assertTrue(new File(this.testPath.toString()).isFile());
+    }
 
     @AfterEach
     void cleanEach() {
@@ -100,7 +103,7 @@ public class WeatherTest {
         try {
             Files.delete(this.testPath);
         } catch (final IOException e) {
-            e.printStackTrace();
+        	Main.getLog().error("can't clean up testfile");;
         }
     }
 
